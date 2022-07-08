@@ -9,10 +9,8 @@ class Login extends CI_Controller
     }
     public function index()
     {
-        $this->form_validation->set_rules('email', 'email', 'required|
-trim');
-        $this->form_validation->set_rules('password', 'Password', 'require
-d|trim');
+        $this->form_validation->set_rules('email', 'email', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('login/index');
         } else {
@@ -47,15 +45,13 @@ d|trim');
                 }
             } else {
                 //jika password salah
-                $this->session->set_flashdata('message', '<div class="alert
-alert-danger" role="alert"> <b>Error :</b> Password Salah. </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> <b>Error :</b> Password Salah. </div>');
                 redirect('/');
             }
         } else {
             //Jika user tidak terdaftar
             // echo "User Kadada";
-            $this->session->set_flashdata('message', '<div class="alert alert
--danger" role="alert"> <b>Error :</b> User Tidak Terdaftar. </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> <b>Error :</b> User Tidak Terdaftar. </div>');
             redirect('/');
         }
     }
